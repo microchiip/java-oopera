@@ -40,7 +40,7 @@ public class Show {
     }
 
     public void replacementActor(Actor actor, String surname){
-
+        boolean flag = false;
         for(Actor act: actors){
             if(surname.equals(act.getSurname())){
                 System.out.println("Актер для замены найден");
@@ -50,9 +50,13 @@ public class Show {
                     System.out.println("новый актер добавлен");
                     actors.remove(act);
                     System.out.println("старый актер удален");
+                    flag = true;
                     break; //если есть однофамильцы
                 }
-            }else System.out.println("Старый актер не найден");
+            }
+        }
+        if(!flag){
+            System.out.println("Актер не найден");
         }
     }
 
